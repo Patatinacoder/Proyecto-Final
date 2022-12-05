@@ -1,0 +1,27 @@
+
+  
+  .col {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    max-width: 200vh;
+margin: 6%;   
+ height: auto;
+
+    width: 100%;
+  }
+  
+  .movieImage {
+    border-radius: 15px;
+  }
+  
+  .movieDetails {
+    font-size: 1.5rem;
+    margin-left: 6%;
+  }
+  
+  .firstItem {
+    margin-left: 5%;
+  }
+  

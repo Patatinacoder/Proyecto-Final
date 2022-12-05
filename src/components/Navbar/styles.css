@@ -1,0 +1,27 @@
+ul{
+    background-color: black;
+   }
+   
+   li{
+       display: inline-block;
+        margin-block-end: 10px;
+        margin-top: 1%;
+        margin-left: 1%;
+        font-size: 19px;
+        
+   
+   }
+   
+   a{
+       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+       0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+   
+       text-decoration: none;
+       margin-inline-end: 100px;
+       font-family: 'Times New Roman', Times, serif;
+       font-weight: bold;
+       cursor:pointer;
+   }
+   
+   
+       
