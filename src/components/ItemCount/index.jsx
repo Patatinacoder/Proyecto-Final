@@ -22,7 +22,7 @@ const ItemCount = ({onAdd, stock, initial})=>{
         <button onClick={onDecrement}>-</button>
         <span>{count}</span>
         <button onClick={onPlus}>+</button>
-        <button onClick={()=>onAdd(count)}>Confirm Puschase</button>
+        <button onClick={()=>onAdd(count)}>Confirm Purchase</button>
     </div>
 
 

@@ -1,7 +1,11 @@
-ul{
+ul-container-dark{
     background-color: black;
    }
    
+.ul-container{
+    
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);    
+}
    li{
        display: inline-block;
         margin-block-end: 10px;

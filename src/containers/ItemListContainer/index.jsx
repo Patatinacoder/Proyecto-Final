@@ -9,12 +9,15 @@ export function MoviesGrid() {
   const [movies, setMovies] = useState([]);
   const { categoryId } = useParams();
   
-  const [adView, setAdView]= useState(true)
+  const [adView, setAdView] = useState(true);
 
-  const handleClose=(evento) =>{
-    console.log(evento);
-    setAdView(false)
-  }
+  const handleClose = (evento) => {
+      console.log(evento);
+      setAdView(false);
+  };
+  useEffect(() => {
+      setAdView(true);
+  }, []);
 
 
 
@@ -58,6 +61,9 @@ return ()=>{
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
+      
+
+
       
 
       {adView ?( <Ad>

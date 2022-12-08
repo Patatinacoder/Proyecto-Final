@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import styles from "./MovieCard.module.css";
+import "./movieCard.css"
 export function MovieCard({ movie }) {
+
+
     return (
-        <li className={styles.movieCard}>
+
+
+        <li className="movieCard">
             <Link to={`/detail/${movie.id}`}>
 
-                <div>
+                <div >
                     
                     <img
                         src={process.env.PUBLIC_URL + `${movie.poster}`}
@@ -13,8 +17,7 @@ export function MovieCard({ movie }) {
                     />
                 </div>
 
-                <div>{movie.name}</div>
-                <div>{movie.category}</div>
+                <div >{movie.name}</div>
 
             </Link>
         </li>

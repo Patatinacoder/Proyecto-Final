@@ -12,8 +12,12 @@ margin: 6%;
     width: 100%;
   }
   
+
+  .col-light{
+color: black;  }
   .movieImage {
     border-radius: 15px;
+
   }
   
   .movieDetails {

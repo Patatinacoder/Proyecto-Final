@@ -1,0 +1,24 @@
+.red-class{
+    height: 400px;
+    width: 400px;
+    border-radius: 8px;
+    border: 2px solid black;
+    color: white;
+    background-color: red;
+}
+
+.blue-class{
+    height: 400px;
+    width: 400px;
+    border: 2px solid salmon;
+    color: black;
+    background-color: blue;
+}
+
+.yellow-class{
+    height: 400px;
+    width: 400px;
+    color: black;
+    background-color: yellow;
+    border: 2px dashed blue;
+}
