@@ -4,6 +4,9 @@ import MovieCard from "../../components/Item";
 import products from "../../data/products";
 import styles from "./MoviesGrid.module.css";
 import Ad from "../../components/Ad/index"
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
+
 
 export function MoviesGrid() {
   const [movies, setMovies] = useState([]);
@@ -20,6 +23,7 @@ export function MoviesGrid() {
   }, []);
 
 
+  
 
   useEffect(() => {
     const promesa = new Promise((resolve, reject) => {
@@ -46,6 +50,15 @@ const handleEsc =  (evento)=>{
 
   }
 }
+
+//documentación Firestore
+const q = query(collection(db, "products"))
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
 
 
 
