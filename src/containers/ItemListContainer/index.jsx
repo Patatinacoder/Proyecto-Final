@@ -47,6 +47,10 @@ const handleEsc =  (evento)=>{
   }
 }
 
+
+
+
+
 window.addEventListener("keydown", handleEsc)
 
 return ()=>{
