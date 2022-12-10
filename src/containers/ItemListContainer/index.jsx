@@ -23,19 +23,36 @@ export function MoviesGrid() {
   }, []);
 
 
-  
 
   useEffect(() => {
-    const promesa = new Promise((resolve, reject) => {
-      resolve(products);
-    });
-    if (!categoryId) promesa.then((data) => setMovies(data));
-    else {
-      promesa.then((data) =>
-        setMovies(data.filter((product) => product.category === categoryId))
-      );
-    }
-  }, [categoryId]);
+    (async () => {
+        try {
+            console.log(categoryId); 
+  let q;
+  if (categoryId) {
+      q = query(collection(db, "products"), where("category", "==", categoryId))
+  } else {
+      q = query(collection(db, "products"));
+  }
+
+  const querySnapshot = await getDocs(q);
+  const productosFirebase = [];
+  querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+      productosFirebase.push({...doc.data(), id: doc.id})
+  });
+  setMovies(productosFirebase);
+} catch (error) {
+  console.log(error);
+
+
+
+}
+})();
+}, [categoryId]);
+
+console.log(products);
 
 
 
@@ -50,15 +67,6 @@ const handleEsc =  (evento)=>{
 
   }
 }
-
-//documentación Firestore
-const q = query(collection(db, "products"))
-
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
 
 
 
