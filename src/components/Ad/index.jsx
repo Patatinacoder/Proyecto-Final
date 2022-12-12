@@ -20,9 +20,10 @@ const  Ad= ({children})=>{
             flexDirection:'column',
             justifyContent:'center',
             padding:50,
-            width:500,
-            height:300,
-            backgroundColor:'salmon',
+            width:300,
+            height:200,
+            backgroundColor:'black',
+            border: '10px dotted deeppink'
 
           }}  
           >

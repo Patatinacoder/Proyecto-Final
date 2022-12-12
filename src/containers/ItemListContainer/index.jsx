@@ -92,8 +92,8 @@ return ()=>{
       
 
       {adView ?( <Ad>
-        <h1>Este es un anuncio molesto</h1> 
-        <button onClick={handleClose}> cerrar anuncio</button></Ad>)
+        <h1 className={styles.welcome}>Welcome To MuvYcenter</h1> 
+        <button className= {styles.button} onClick={handleClose}>Close</button></Ad>)
         : null}
 
     </ul>

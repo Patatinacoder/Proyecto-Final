@@ -1,18 +1,36 @@
-import React from 'react'
-import cart from "./cart.ico"
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Cart } from '../../contexts/Cart'
+import CartIcon from '../CartIcon'
 
- const CartWidget = () => {
+
+  const CartWidget = () => {
+    const navigate = useNavigate()
+    const {itemsTotal} = useContext(Cart)
+  
   return (
-    <div style = {
+    <div 
+    style = {
         {
-          cursor: 'pointer',
-   
+          width: 50,
+          height:50,
+          cursor:'pointer',
+          display:'flex',
+          flexDirection:'row',
+          gap:'5px',
+          float: 'inline-end',
+          
    position: 'absolute',
-   top: 25,
-   right: 15,
-    }}>  
-    <img src= {cart}  alt="carrito"/>
+   top: 14,
+   right: 5,
+
+    }}
+       onClick = {() => navigate("/cart")}
+       >
+        <CartIcon/>
+    <span>{itemsTotal() === 0 ? null  : `(${itemsTotal()})`}</span>
     </div>
+
     )
 }
 
