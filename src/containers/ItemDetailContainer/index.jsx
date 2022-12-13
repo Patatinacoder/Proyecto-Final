@@ -22,7 +22,6 @@ import ItemDetail from "../../components/ItemDetail";
                      
                         const docRef = doc(db, "products", id);
             
-                        //2do generar la petición
                         const docSnap = await getDoc(docRef);
             
                         if (docSnap.exists()) {
