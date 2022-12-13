@@ -12,7 +12,7 @@
     border-radius: 10px;
   }
   
-  @media (max-width: 560px) {
+  @media (max-width: 200px) {
     .movieImage {
       width: 90%;
       height: auto;

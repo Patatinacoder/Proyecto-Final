@@ -55,7 +55,7 @@ const CartContainer = () => {
                
                 try {
                     const docRef = await addDoc(collection(db, "orders"), generatedOrder);
-                    alert(`Order Generated: ${docRef.id}`)
+                    alert(`Order Generated: ${docRef.id} `)
                 } catch (error) {
                     console.log(error)
                 }

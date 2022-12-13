@@ -1,5 +1,5 @@
 
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget";
 import { Theme } from "../../contexts/Theme";
@@ -7,11 +7,11 @@ import "./styles.css";
 
 const NavBar = () => {
 
-    const {themeColor, setThemeColor} = useContext(Theme)
-    
-    const handleChange = (event)=>{
+    const { themeColor, setThemeColor } = useContext(Theme)
+
+    const handleChange = (event) => {
         setThemeColor(event.target.value)
-    
+
 
     }
     console.log(themeColor);
@@ -27,12 +27,12 @@ const NavBar = () => {
             </li>
 
 
-<select value={themeColor} onChange={handleChange}>
+            <select value={themeColor} onChange={handleChange}>
 
-    <option value={'light'}>Light</option>
-    <option value={'dark'}>Dark</option>
-</select>
-           
+                <option value={'light'}>Light</option>
+                <option value={'dark'}>Dark</option>
+            </select>
+
             <CartWidget />
         </ul>
     );

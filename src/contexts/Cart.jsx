@@ -44,7 +44,6 @@ const deleteAll = ()=>{
     setProducts([]);
 }
 
-//Calculo total
 const calcTotal = ()=> {
     const total = products.reduce((acc, currentProduct) => acc += currentProduct.quantity * currentProduct.price, 0)
     return total

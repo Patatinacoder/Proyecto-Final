@@ -13,37 +13,37 @@ import ItemCount from '../ItemCount';
 
 
 
-const ItemDetail = ({movie})=>{
+const ItemDetail = ({ movie }) => {
 
-    const {addProduct} = useContext(Cart)
-    const [quantityItemDetail, setQuantityItemDetail]= useState(0)
+    const { addProduct } = useContext(Cart)
+    const [quantityItemDetail, setQuantityItemDetail] = useState(0)
 
     const navigate = useNavigate()
-     
-    const confirmPurchase = (quantity) =>{
+
+    const confirmPurchase = (quantity) => {
         console.log(quantity);
-        addProduct({...movie, quantity})
+        addProduct({ ...movie, quantity })
         setQuantityItemDetail(quantity)
 
-        }
-        const handleNavigate = ()=>{
+    }
+    const handleNavigate = () => {
 
         navigate('/cart')
-        
+
     }
     console.log(movie);
-    return(
+    return (
         <div className="col">
-            <img  className="movieImage"src={movie.poster} alt="details" />
+            <img className="movieImage" src={movie.poster} alt="details" />
             <h1 className="firstItem">{movie.name}</h1>
             <h2 className="movie.details">{movie.description}</h2>
-            {quantityItemDetail ? 
-            <button onClick={handleNavigate}>Go cart</button>
-            :
-           
-          <ItemCount onAdd={confirmPurchase} initial={1} stock ={20} />
-        }
-             </div>
+            {quantityItemDetail ?
+                <button onClick={handleNavigate}>Go cart</button>
+                :
+
+                <ItemCount onAdd={confirmPurchase} initial={1} stock={20} />
+            }
+        </div>
     )
 }
 

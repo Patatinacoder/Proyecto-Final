@@ -2,18 +2,18 @@ import React from "react";
 import { useState } from "react";
 import "./styles.css"
 
-const ItemCount = ({onAdd, stock, initial})=>{
-    const [count,setCount]= useState(initial);
+const ItemCount = ({ onAdd, stock, initial }) => {
+    const [count, setCount] = useState(initial);
 
-    const onPlus = () =>{
+    const onPlus = () => {
         if (count < stock)
-        setCount (count+1)
+            setCount(count + 1)
     }
 
- 
-    const onDecrement = () =>{
+
+    const onDecrement = () => {
         if (count > initial)
-    setCount(count -1)
+            setCount(count - 1)
     }
 
 
@@ -22,7 +22,7 @@ const ItemCount = ({onAdd, stock, initial})=>{
         <button onClick={onDecrement}>-</button>
         <span>{count}</span>
         <button onClick={onPlus}>+</button>
-        <button onClick={()=>onAdd(count)}>Confirm Purchase</button>
+        <button onClick={() => onAdd(count)}>Confirm Purchase</button>
     </div>
 
 

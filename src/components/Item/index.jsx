@@ -10,7 +10,7 @@ export function MovieCard({ movie }) {
             <Link to={`/detail/${movie.id}`}>
 
                 <div >
-                    
+
                     <img
                         src={process.env.PUBLIC_URL + `${movie.poster}`}
                         alt='poster'
