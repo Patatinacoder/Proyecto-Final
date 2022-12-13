@@ -19,10 +19,10 @@ const ItemCount = ({ onAdd, stock, initial }) => {
 
 
     return <div>
-        <button onClick={onDecrement}>-</button>
+        <button className="counter" onClick={onDecrement}>-</button>
         <span>{count}</span>
-        <button onClick={onPlus}>+</button>
-        <button onClick={() => onAdd(count)}>Confirm Purchase</button>
+        <button className="counter" onClick={onPlus}>+</button>
+        <button className="confirmPur" onClick={() => onAdd(count)}>Confirm Purchase</button>
     </div>
 
 

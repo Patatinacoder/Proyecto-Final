@@ -6,7 +6,6 @@ import Router from "./routes";
 
  function App() {
     const {themeColor}= useContext(Theme)
-    console.log(themeColor);
   return(
     <div 
     className={themeColor === 'light' ? "container-light" : null}>

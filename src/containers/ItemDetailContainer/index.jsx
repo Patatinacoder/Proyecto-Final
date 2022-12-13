@@ -13,7 +13,6 @@ import ItemDetail from "../../components/ItemDetail";
 export function ItemDetailContainer() {
     const [movie, setMovie] = useState({});
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
 
@@ -25,10 +24,8 @@ export function ItemDetailContainer() {
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
                 setMovie({ ...docSnap.data(), id: docSnap.id })
             } else {
-                console.log("No such document!");
             }
         }
 

@@ -14,7 +14,6 @@ const NavBar = () => {
 
 
     }
-    console.log(themeColor);
     return (
         <ul className={themeColor === 'dark' ? "ul-container-dark" : "ul-container"}>
             <li>

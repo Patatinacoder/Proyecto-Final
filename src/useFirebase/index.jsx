@@ -16,7 +16,6 @@ const [data, setData] = useState([])
 useEffect(() => {
     (async () => {
       try {
-        console.log(categoryId);
         let q;
         if (categoryId) {
           q = query(collection(db, "products"), where("category", "==", categoryId))
@@ -27,7 +26,6 @@ useEffect(() => {
         const querySnapshot = await getDocs(q);
         const productosFirebase = [];
         querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
           productosFirebase.push({ ...doc.data(), id: doc.id })
         });
         setData(productosFirebase);

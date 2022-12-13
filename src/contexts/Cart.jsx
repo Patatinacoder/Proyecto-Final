@@ -8,7 +8,6 @@ const CartProvider = ({children}) => {
 
     const [products, setProducts]=useState([])
     const addProduct = (productToAdd) =>{
-        console.log(productToAdd); 
         const flagRepeated = isInCart(productToAdd.id)
         if (flagRepeated){
 

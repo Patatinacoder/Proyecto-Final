@@ -12,7 +12,6 @@ export  function MoviesGrid() {
   const [data] = useFirebase(categoryId)
 
   const handleClose = (evento) => {
-    console.log(evento);
     setAdView(false);
   };
   useEffect(() => {

@@ -31,3 +31,13 @@ color: black;
     margin-left: 5%;
   }
   
+  .goCart{
+    width: 20%;
+    height: 30px;
+    background-color: rgb(88, 96, 160);
+    border-radius: 20px;
+    border: 2px  solid rgb(64, 10, 151); 
+    color:rgb(64, 10, 151) ;
+    font-size: 15px;
+    font-weight: bold;
+  }
