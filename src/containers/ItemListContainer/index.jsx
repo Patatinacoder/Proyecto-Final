@@ -19,18 +19,7 @@ export  function MoviesGrid() {
     setAdView(true);
   }, []);
 
-  useEffect(() => {
-    const handleEsc = (evento) => {
-      console.log(evento);
-
-      if (evento.keyCode === 27) {
-        console.log("will close")
-        setAdView(false)
-        window.removeEventListener("keydown", handleEsc)
-
-      }
-    }
-    window.addEventListener("keydown", handleEsc)
+ 
 
   return (
     <ul className={styles.moviesGrid}>
@@ -49,5 +38,4 @@ export  function MoviesGrid() {
   );
 }
 
-  )}
   export default MoviesGrid
