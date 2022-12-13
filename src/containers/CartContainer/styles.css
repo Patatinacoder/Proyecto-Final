@@ -1,0 +1,11 @@
+.buy{
+    background-color: rgb(198, 184, 250);
+    border-radius: 20px;
+    border: 2px solid rgb(78, 56, 156);
+    width: 20%;
+    height: 40px;
+    color: rgb(58, 56, 196);
+    font-size: 25px;
+    font-weight: bold;
+  
+}

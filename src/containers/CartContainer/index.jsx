@@ -4,7 +4,7 @@ import {Cart} from '../../contexts/Cart';
 import generateOrder from '../../services/generateOrder';
 import { doc, getDoc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase/config';
-
+import './styles.css'
 const CartContainer = () => {
     const {products, calcTotal} = useContext(Cart)
 
