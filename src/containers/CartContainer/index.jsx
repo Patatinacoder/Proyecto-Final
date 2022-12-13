@@ -37,7 +37,7 @@ const CartContainer = () => {
             console.log(productOutOfStock);
     
             if (productOutOfStock.length === 0) {
-                //Disminuir el stock existente
+               
                 console.log(products);
     
                 for (const productInCart of products) {
@@ -46,7 +46,7 @@ const CartContainer = () => {
                         const docSnap = await getDoc(productRef);
                         const productInFirebase = {...docSnap.data(), id: doc.id}
             
-                        // Set the "capital" field of the city 'DC'
+                     
                         await updateDoc(productRef, {
                             stock: productInFirebase.stock - productInCart.quantity
                         });
