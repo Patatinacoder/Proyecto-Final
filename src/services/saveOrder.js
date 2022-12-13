@@ -10,7 +10,7 @@ export const saveOrder = async (nombreComprador, telefono, email, products, tota
             products,
             total
         );
-    
+
         const productOutOfStock = [];
         const productsInFirebase = [];
         for (const productInCart of products) {
@@ -21,14 +21,11 @@ export const saveOrder = async (nombreComprador, telefono, email, products, tota
             if (productInCart.quantity > productInFirebase.quantity)
                 productOutOfStock.push(productInCart);
         }
-    
-        console.log(productOutOfStock);
-        console.log(productsInFirebase);
-    
+
+
         if (productOutOfStock.length === 0) {
-        
-            console.log(products);
-    
+
+
             for (const productInCart of products) {
                 const productInFirebase = productsInFirebase.find(
                     (product) => product.id === productInCart.id
@@ -38,14 +35,14 @@ export const saveOrder = async (nombreComprador, telefono, email, products, tota
                     "products",
                     productInCart.id
                 );
-              
+
                 await updateDoc(productRef, {
                     quantity:
                         productInFirebase.stock -
                         productInCart.quantity,
                 });
             }
-    
+
             //Generar la orden
             const docRef = await addDoc(
                 collection(db, "orders"),
@@ -60,12 +57,10 @@ export const saveOrder = async (nombreComprador, telefono, email, products, tota
                 const productInFirebase = productsInFirebase.find(
                     (productFirebase) => productFirebase.id === product.id
                 );
-                console.log(productInFirebase);
                 mensaje += `${product.name}, Stock: ${productInFirebase.stock}, Requested quantity: ${product.quantity}\n`;
             }
             alert(`Product/s out of stock: \n${mensaje}`);
         }
     } catch (error) {
-        console.log(error);
     }
 }

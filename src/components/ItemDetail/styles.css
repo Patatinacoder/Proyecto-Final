@@ -29,6 +29,7 @@ color: black;
   
   .firstItem {
     margin-left: 5%;
+    color: blueviolet;
   }
   
   .goCart{
@@ -41,3 +42,8 @@ color: black;
     font-size: 15px;
     font-weight: bold;
   }
+
+  .price{
+ padding-right: 10%;
+ color: blueviolet;
+    }

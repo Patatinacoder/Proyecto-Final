@@ -35,6 +35,7 @@ const ItemDetail = ({ movie }) => {
             <img className="movieImage" src={movie.poster} alt="details" />
             <h1 className="firstItem">{movie.name}</h1>
             <h2 className="movie.details">{movie.description}</h2>
+            <h3 className='price'>${movie.price}</h3>
             {quantityItemDetail ?
                 <button className='goCart' onClick={handleNavigate}>Go cart</button>
                 :
