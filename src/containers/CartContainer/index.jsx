@@ -1,42 +1,31 @@
-import React, { useContext } from 'react';
-import CartItem from '../../components/CartItem';
+import React, { useContext } from 'react'
+import CartItem from '../../components/CartItem'
 import { Cart } from '../../contexts/Cart';
-import './styles.css'
-import { saveOrder } from '../../services/saveOrder';
-
-
+import { useNavigate } from 'react-router-dom';
+import './styles.css';
+import '../CheckOutContainer'
 
 const CartContainer = () => {
-    const { products, calcTotal } = useContext(Cart)
 
-    const confirmPurchase = () => {
-
-        (async () => {
-            await saveOrder(
-                "Cata",
-                102020303,
-                "aaabbb@gmail.com",
-                products,
-                calcTotal()
-            )
-        })()
-
+    const navigate = useNavigate();
+    const navigateCheckout = () =>{
+        navigate(`/Checkout`)
     }
 
+    const {products} = useContext(Cart);
+
     return (
-
-       
-        
-        <div>
-            {products.map((product) => {
-                return <CartItem key={product.id} item={product} />
+    products.length?
+    <>
+        <div className='cart-container'>
+            {products.map(product =>{
+            return <CartItem item={product} key={product.id}></CartItem>
             })}
-            <button className='buy' onClick={confirmPurchase}>
-                Buy
-            </button>
         </div>
-
-        
+        <button className='btn btn-secondary' onClick={navigateCheckout}>Continuar</button>
+    </>
+    :
+    <h2>No hay productos en el carrito</h2>
     )
 }
 
