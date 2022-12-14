@@ -5,7 +5,6 @@ import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
 import { Cart } from "../../contexts/Cart";
-import generateOrder from "../../services/generateOrder"
 import { Spinner } from "../../components/Spinner";
 
 
