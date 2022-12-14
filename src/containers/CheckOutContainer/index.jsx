@@ -4,12 +4,12 @@ import { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
-import CartProvider from "../../contexts/Cart";
+import { Cart } from "../../contexts/Cart";
 import { Spinner } from "../../components/Spinner";
 
 
 const Checkout= ()=>{
-    const {CartProvider,calcTotal,deleteAll} = useContext(Cart)
+    const {itemsTotal,calcTotal,removeProduct} = useContext(Cart)
 
     const[load, setLoad]= useState(false)
     const [orderID,setOrderID] = useState()
@@ -37,7 +37,7 @@ const generateOrder = async(data)=> {
         const col = collection(db, "Orders")
         const order = await addDoc(col, data)
         setOrderID(order.id)
-        deleteAll()
+       removeProduct()
         setLoad(false)
     } catch(error){
         console.log(error);
@@ -48,9 +48,9 @@ const generateOrder = async(data)=> {
 const handleSubmit = (e)=>{
     e.preventDefault()
     const dia = new Date()
-    const items = CartProvider.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
+    const items = itemsTotal.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
     const total = calcTotal()
-    const data = {buyer, items, dia, calcTotal}
+    const data = {buyer, items, dia, total}
     console.log("data", data)
     generateOrder(data)
 }
