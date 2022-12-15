@@ -35,7 +35,7 @@ const handleInputChange = (e)=>{
 const generateOrder = async(data)=> {
     setLoad(true)
     try{
-        const collec = collection(db, "Order")
+        const collec = collection(db, "order")
         const order = await addDoc(collec, data)
         setOrderID(order.id)
         deleteAll()
