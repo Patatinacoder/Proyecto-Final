@@ -1,5 +1,3 @@
-
-
 import { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
@@ -35,12 +33,11 @@ const handleInputChange = (e)=>{
 const generateOrder = async(data)=> {
     setLoad(true)
     try{
-        const collec = collection(db, "Order")
+        const collec = collection(db, "order")
         const order = await addDoc(collec, data)
         setOrderID(order.id)
-        
         deleteAll()
-        setLoad(false)
+        setLoad(false) 
     } catch(error){
         console.log(error);
     }
@@ -50,17 +47,10 @@ const generateOrder = async(data)=> {
 const handleSubmit = (e)=>{
     e.preventDefault()
     const dia = new Date()
-    const items = products.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
+    const items = products
     const total = calcTotal()
-    const data = {buyer, items, dia, total}
-    console.log("data", data)
-    generateOrder(data)
-
-   
-
+    generateOrder({buyer, items, dia, total})
 }
-
-
 
 return(
     <>
