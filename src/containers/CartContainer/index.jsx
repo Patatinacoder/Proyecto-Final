@@ -18,11 +18,11 @@ const CartContainer = () => {
     products.length?
     <>
         <div className='cart-container'>
-            {products.map(product =>{
+            {products.map (product =>{
             return <CartItem item={product} key={product.id}></CartItem>
             })}
         </div>
-        <button className='btn btn-secondary' onClick={navigateCheckout}>Continuar</button>
+        <button className='btn' onClick={navigateCheckout}>Continuar</button>
     </>
     :
     <h2>No hay productos en el carrito</h2>

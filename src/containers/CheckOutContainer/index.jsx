@@ -54,11 +54,16 @@ const handleSubmit = (e)=>{
     const data = {buyer, items, dia, total}
     console.log("data", data)
     generateOrder(data)
+
+   
+
 }
+
+
 
 return(
     <>
-    <h1>finalizing purchase</h1>
+    <h1>Finalizing purchase</h1>
     <hr/>
 
     {load ? <Spinner/>
@@ -111,10 +116,13 @@ return(
     <div>
     {   
 
+
 orderID&&(
+    
     <div>
-        <h3>purchase completed successfully</h3>
+        <h2>Purchase completed successfully</h2>
         <h3>{`Your purchase code is: ${orderID}`}</h3>
+        
         <Link to= "/">Shop Again</Link>
     </div>
 )
