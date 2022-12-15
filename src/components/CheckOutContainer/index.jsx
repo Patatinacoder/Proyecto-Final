@@ -37,7 +37,7 @@ const generateOrder = async(data)=> {
         const order = await addDoc(collec, data)
         setOrderID(order.id)
         deleteAll()
-        setLoad(false)
+        setLoad(false) 
     } catch(error){
         console.log(error);
     }
@@ -50,12 +50,7 @@ const handleSubmit = (e)=>{
     const items = products
     const total = calcTotal()
     generateOrder({buyer, items, dia, total})
-
-   
-
 }
-
-
 
 return(
     <>
