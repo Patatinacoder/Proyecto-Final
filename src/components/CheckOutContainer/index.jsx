@@ -1,16 +1,14 @@
-
-
 import { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
-import { Cart } from "../../contexts/Cart";
-import generateOrder from "../../services/generateOrder";
+
 import { Spinner } from "../../components/Spinner";
+import { Cart } from "../../contexts/Cart";
 
 
 const Checkout= ()=>{
-    const {cart,getTotal,clear} = useContext(Cart)
+    const {products,calcTotal,deleteAll} = useContext(Cart)
 
     const[load, setLoad]= useState(false)
     const [orderID,setOrderID] = useState()
@@ -35,10 +33,10 @@ const handleInputChange = (e)=>{
 const generateOrder = async(data)=> {
     setLoad(true)
     try{
-        const col = collection(db, "Orders")
-        const order = await addDoc(col, data)
+        const collec = collection(db, "order")
+        const order = await addDoc(collec, data)
         setOrderID(order.id)
-        clear()
+        deleteAll()
         setLoad(false)
     } catch(error){
         console.log(error);
@@ -49,16 +47,19 @@ const generateOrder = async(data)=> {
 const handleSubmit = (e)=>{
     e.preventDefault()
     const dia = new Date()
-    const items = cart.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
-    const total = getTotal()
-    const data = {buyer, items, dia, total}
-    console.log("data", data)
-    generateOrder(data)
+    const items = products
+    const total = calcTotal()
+    generateOrder({buyer, items, dia, total})
+
+   
+
 }
+
+
 
 return(
     <>
-    <h1>finalizing purchase</h1>
+    <h1>Finalizing purchase</h1>
     <hr/>
 
     {load ? <Spinner/>
@@ -68,7 +69,7 @@ return(
         <form onSubmit={handleSubmit}>
             <input 
             type="text"
-            name="Name"
+            name="Nombre"
             placeholder="Name"
             value={Nombre}
             onChange={handleInputChange}
@@ -88,7 +89,7 @@ return(
 
              <input 
              type="number"
-             name="Phone"
+             name="Telefono"
              placeholder="Phone"
              value={Telefono}
              onChange={handleInputChange}
@@ -111,10 +112,13 @@ return(
     <div>
     {   
 
+
 orderID&&(
+    
     <div>
-        <h3>purchase completed successfully</h3>
+        <h2>Purchase completed successfully</h2>
         <h3>{`Your purchase code is: ${orderID}`}</h3>
+        
         <Link to= "/">Shop Again</Link>
     </div>
 )
@@ -127,5 +131,3 @@ orderID&&(
 
 }
 export default Checkout
-
-
