@@ -43,7 +43,7 @@ export const saveOrder = async (nombreComprador, telefono, email, products, tota
                 });
             }
 
-            //Generar la orden
+          
             const docRef = await addDoc(
                 collection(db, "orders"),
                 generatedOrder

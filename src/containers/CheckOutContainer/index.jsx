@@ -4,12 +4,13 @@ import { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase/config";
-import { Cart } from "../../contexts/Cart";
+
 import { Spinner } from "../../components/Spinner";
+import { Cart } from "../../contexts/Cart";
 
 
 const Checkout= ()=>{
-    const {itemsTotal,calcTotal,removeProduct} = useContext(Cart)
+    const {products,calcTotal,deleteAll} = useContext(Cart)
 
     const[load, setLoad]= useState(false)
     const [orderID,setOrderID] = useState()
@@ -34,10 +35,10 @@ const handleInputChange = (e)=>{
 const generateOrder = async(data)=> {
     setLoad(true)
     try{
-        const col = collection(db, "Orders")
-        const order = await addDoc(col, data)
+        const collec = collection(db, "Order")
+        const order = await addDoc(collec, data)
         setOrderID(order.id)
-       removeProduct()
+        deleteAll()
         setLoad(false)
     } catch(error){
         console.log(error);
@@ -48,7 +49,7 @@ const generateOrder = async(data)=> {
 const handleSubmit = (e)=>{
     e.preventDefault()
     const dia = new Date()
-    const items = itemsTotal.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
+    const items = products.map(e => {return {id:e.id, title: e.name, price: e.price, amount:e.amount}})
     const total = calcTotal()
     const data = {buyer, items, dia, total}
     console.log("data", data)
@@ -126,5 +127,3 @@ orderID&&(
 
 }
 export default Checkout
-
-
